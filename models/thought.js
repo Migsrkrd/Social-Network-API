@@ -7,17 +7,17 @@ const thoughtSchema = new mongoose.Schema({
     reactions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'reaction' }]
     });
 
-const thought = mongoose.model('user', thoughtSchema);
+const thought = mongoose.model('thought', thoughtSchema);
 
 const handleError = (err) => console.error(err);
 
 // Will add data only if collection is empty to prevent duplicates
 // More than one document can have the same name value
-user.find({})
+thought.find({})
   .exec()
   .then(collection => {
     if (collection.length === 0) {
-      user
+      thought
         .insertMany(
           [
             { thoughtText: 'whatsup', username: 'Testing'},
