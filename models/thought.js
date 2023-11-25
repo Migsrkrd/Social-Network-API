@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const thoughtSchema = new mongoose.Schema({
-    thoughtText: { type: String, required: true, Trimmed: true },
+    thoughtText: { type: String, required: true, trim: true },
     createdAt: { type: Date, default: Date.now },
     username: { type: String, required: true},
     reactions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'reaction' }]
